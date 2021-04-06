@@ -5,12 +5,12 @@
 
 #include "scanmem.h"
 
-// ./configure CFLAGS="-fPIC -I/usr/lib/jvm/java-11-openjdk-amd64/include -I/usr/lib/jvm/java-11-openjdk-amd64/include/linux" LDFLAGS="-L/usr/lib/jvm/java-11-openjdk-amd64/include -L/usr/lib/jvm/java-11-openjdk-amd64/include/linux"
+// ./configure CFLAGS="-fPIC -I/usr/lib/jvm/java-11-openjdk-amd64/include -I/usr/lib/jvm/java-11-openjdk-amd64/include/linux"
 // make
 
 static const char *JNIT_CLASS = "ScanMem";
 
-static bool s_init(JNIEnv *env, jobject obj) {
+static jboolean s_init(JNIEnv *env, jobject obj) {
 	(void)env;
 	(void)obj;
 
@@ -46,11 +46,11 @@ static void s_cleanup(JNIEnv *env, jobject obj) {
 }
 
 static JNINativeMethod funcs[] = {
-	{ "s_init", "(V)Z", (void *)&s_init },
-  { "s_set_backend", "(V)V", (void *)&s_set_backend },
+	{ "s_init", "()Z", (void *)&s_init },
+  { "s_set_backend", "()V", (void *)&s_set_backend },
 	{ "s_backend_exec_cmd", "(Ljava/lang/String;)V", (void *)&s_backend_exec_cmd },
-	{ "s_get_version", "(V)Ljava/lang/String;", (void *)&s_get_version },
-	{ "s_cleanup", "(V)V", (void *)&s_cleanup },
+	{ "s_get_version", "()Ljava/lang/String;", (void *)&s_get_version },
+	{ "s_cleanup", "()V", (void *)&s_cleanup },
 };
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)
