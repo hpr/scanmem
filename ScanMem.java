@@ -3,9 +3,10 @@
 
 class ScanMem {
   static {
-    System.loadLibrary("scanmem");
+    System.load("/home/habs/rn/scanmem/.libs/libscanmem.so.1.0.0");
+    //System.loadLibrary("scanmem");
   }
-  private static native boolean s_init();
+  //private static native boolean s_init();
   private static native String s_get_version();
   public static void main(String args[]) {
     try {

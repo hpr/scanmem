@@ -9,14 +9,6 @@ extern "C" {
 #endif
 /*
  * Class:     ScanMem
- * Method:    s_init
- * Signature: ()Z
- */
-JNIEXPORT jboolean JNICALL Java_ScanMem_s_1init
-  (JNIEnv *, jclass);
-
-/*
- * Class:     ScanMem
  * Method:    s_get_version
  * Signature: ()Ljava/lang/String;
  */

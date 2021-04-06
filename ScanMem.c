@@ -5,9 +5,17 @@
 
 #include "scanmem.h"
 
+#include "ScanMem.h"
+
 // ./configure CFLAGS="-fPIC -I/usr/lib/jvm/java-11-openjdk-amd64/include -I/usr/lib/jvm/java-11-openjdk-amd64/include/linux"
 // make
 
+JNIEXPORT jstring JNICALL Java_ScanMem_s_1get_1version(JNIEnv *env, jclass obj) {
+  const char *str = sm_get_version();
+  return (*env)->NewStringUTF(env, str);
+};
+
+/*
 static const char *JNIT_CLASS = "ScanMem";
 
 static jboolean s_init(JNIEnv *env, jobject obj) {
@@ -91,3 +99,4 @@ JNIEXPORT void JNICALL JNI_OnUnload(JavaVM *vm, void *reserved)
 
 	(*env)->UnregisterNatives(env, cls);
 }
+*/

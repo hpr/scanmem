@@ -43,7 +43,7 @@ libscanmem_la_SOURCES = commands.c \
     sets.c \
     targetmem.c \
     value.c \
-    jni_wrapper.c
+    ScanMem.c
 
 if !HAVE_GETLINE
   libscanmem_la_SOURCES += getline.h \
